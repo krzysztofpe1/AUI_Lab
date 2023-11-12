@@ -30,7 +30,7 @@ public class Client implements Comparable<Client>, Serializable {
     @Column(name = "client_address")
     private Address deliveryAddress;
     @Builder.Default
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
     @Override
