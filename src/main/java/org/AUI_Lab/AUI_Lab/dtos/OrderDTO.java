@@ -1,4 +1,4 @@
-package org.AUI_Lab.AUI_Lab;
+package org.AUI_Lab.AUI_Lab.dtos;
 
 import lombok.*;
 

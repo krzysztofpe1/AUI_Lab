@@ -1,4 +1,4 @@
-package org.AUI_Lab.AUI_Lab;
+package org.AUI_Lab.AUI_Lab.data_classes;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
