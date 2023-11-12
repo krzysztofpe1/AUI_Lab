@@ -25,6 +25,8 @@ public class Client implements Comparable<Client>, Serializable {
     private UUID id;
     @Column(name = "client_name")
     private String name;
+    @Column(name = "client_surname")
+    private  String surname;
     @Column(name = "client_address")
     private Address deliveryAddress;
     @Builder.Default
