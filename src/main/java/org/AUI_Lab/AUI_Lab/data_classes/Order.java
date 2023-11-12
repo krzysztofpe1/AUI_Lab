@@ -6,6 +6,7 @@ import lombok.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -20,12 +21,17 @@ public class Order implements Comparable<Order>, Serializable {
     @Id
     @GeneratedValue
     @Column(unique = true, updatable = false)
-    private int id;
+    private UUID id;
+    @Column(name = "description")
     private String description;
+    @Column(name = "order_date")
     @Temporal(TemporalType.DATE)
     private Date orderDate;
+    @Column(name = "delivery_date")
     @Temporal(TemporalType.DATE)
     private Date deliveryDate;
+    @ManyToOne
+    @JoinColumn(name = "client")
     private Client client;
 
     @Override
@@ -38,14 +44,14 @@ public class Order implements Comparable<Order>, Serializable {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Order order = (Order) obj;
-        return id == order.id && Objects.equals(description, order.description)
+        return id.equals(order.id) && Objects.equals(description, order.description)
                 && Objects.equals(orderDate, order.orderDate)
                 && Objects.equals(deliveryDate, order.deliveryDate);
     }
 
     @Override
     public int compareTo(Order other) {
-        if(id!=other.id)return id-other.id;
+        if(!id.equals(other.id))return id.compareTo(other.id);
         if(!description.equals(other.description))return description.compareTo(other.description);
         if(!orderDate.equals(other.orderDate))return orderDate.compareTo(other.orderDate);
         if(!deliveryDate.equals(other.deliveryDate))return deliveryDate.compareTo(other.deliveryDate);

@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -21,10 +22,13 @@ public class Client implements Comparable<Client>, Serializable {
     @Id
     @GeneratedValue
     @Column(unique = true, updatable = false)
-    private int id;
+    private UUID id;
+    @Column(name = "client_name")
     private String name;
+    @Column(name = "client_address")
     private Address deliveryAddress;
     @Builder.Default
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
     private List<Order> orders = new ArrayList<>();
 
     @Override
@@ -37,14 +41,14 @@ public class Client implements Comparable<Client>, Serializable {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Client client = (Client) obj;
-        return id == client.id
+        return id.equals(client.id)
                 && name.equals(client.name)
                 && deliveryAddress.equals(client.deliveryAddress);
     }
 
     @Override
     public int compareTo(Client other) {
-        if(id != other.id)return id- other.id;
+        if(!id.equals(other.id))return id.compareTo(other.id);
         if(!name.equals(other.name))return name.compareTo(other.name);
         if(!deliveryAddress.equals(other.deliveryAddress))return deliveryAddress.compareTo(other.deliveryAddress);
         return 0;
