@@ -30,7 +30,7 @@ public class Client implements Comparable<Client>, Serializable {
     @Column(name = "client_address")
     private Address deliveryAddress;
     @Builder.Default
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client", cascade = CascadeType.REMOVE)
     private List<Order> orders = new ArrayList<>();
 
     @Override
@@ -61,19 +61,8 @@ public class Client implements Comparable<Client>, Serializable {
         StringBuilder stringBuilder = new StringBuilder("Client{id='"
                 + String.valueOf(id)
                 + "', name='" + name
+                + "', surname='" + surname
                 + "', deliveryAddress='" + deliveryAddress.toString()+ "'");
-        if(orders!= null && !orders.isEmpty()){
-            stringBuilder.append(", orders={");
-            boolean first = true;
-            for (var order : orders) {
-                if(!first){
-                    stringBuilder.append(", ");
-                }
-                first=false;
-                stringBuilder.append(order.toString());
-            }
-            stringBuilder.append("}");
-        }
         stringBuilder.append("}");
         return stringBuilder.toString();
     }
