@@ -25,11 +25,9 @@ public class Order implements Comparable<Order>, Serializable {
     @Column(name = "description")
     private String description;
     @Column(name = "order_date")
-    @Temporal(TemporalType.DATE)
-    private Date orderDate;
+    private String orderDate;
     @Column(name = "delivery_date")
-    @Temporal(TemporalType.DATE)
-    private Date deliveryDate;
+    private String deliveryDate;
     @ManyToOne
     @JoinColumn(name = "client")
     private Client client;

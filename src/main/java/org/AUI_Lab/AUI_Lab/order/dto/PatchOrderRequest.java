@@ -16,6 +16,6 @@ import java.util.UUID;
 public class PatchOrderRequest {
     private String name;
     private String description;
-    private Date orderDate;
-    private Date deliveryDate;
+    private String orderDate;
+    private String deliveryDate;
 }

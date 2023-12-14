@@ -29,7 +29,7 @@ public class GetOrderResponse {
     private UUID id;
     private String name;
     private String description;
-    private Date orderDate;
-    private Date deliveryDate;
+    private String orderDate;
+    private String deliveryDate;
     private Client client;
 }

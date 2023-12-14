@@ -26,8 +26,8 @@ public class GetOrdersResponse {
         private UUID id;
         private String name;
         private String description;
-        private Date orderDate;
-        private Date deliveryDate;
+        private String orderDate;
+        private String deliveryDate;
     }
     @Singular
     private List<Order> orders;
