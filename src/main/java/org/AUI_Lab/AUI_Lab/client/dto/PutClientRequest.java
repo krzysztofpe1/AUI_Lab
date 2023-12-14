@@ -1,7 +1,6 @@
-package org.AUI_Lab.AUI_Lab.dtos.client;
+package org.AUI_Lab.AUI_Lab.client.dto;
 
 import lombok.*;
-import org.AUI_Lab.AUI_Lab.data_classes.Address;
 
 import java.util.UUID;
 
@@ -12,9 +11,9 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
-public class InsertClientDTO {
+public class PutClientRequest {
     private UUID id;
     private String name;
     private String surname;
-    private Address deliveryAddress;
+    private String clientAddress;
 }

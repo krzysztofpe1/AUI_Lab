@@ -1,7 +1,6 @@
-package org.AUI_Lab.AUI_Lab.dtos.client;
+package org.AUI_Lab.AUI_Lab.client.dto;
 
 import lombok.*;
-import org.AUI_Lab.AUI_Lab.data_classes.Address;
 
 import java.util.List;
 import java.util.UUID;
@@ -13,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
-public class GetClientCollectionDTO {
+public class GetClientsResponse {
     @Getter
     @Setter
     @Builder
@@ -21,11 +20,11 @@ public class GetClientCollectionDTO {
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @ToString
     @EqualsAndHashCode
-    private static class Client{
+    public static class Client{
         private UUID id;
         private String name;
         private String surname;
-        private Address deliveryAddress;
+        private String clientAddress;
     }
     @Singular
     private List<Client> clients;
