@@ -24,10 +24,10 @@ public class GetOrdersResponse {
     @EqualsAndHashCode
     public static class Order{
         private UUID id;
+        private String name;
         private String description;
         private Date orderDate;
         private Date deliveryDate;
-        private int clientId;
     }
     @Singular
     private List<Order> orders;

@@ -2,10 +2,11 @@ package org.AUI_Lab.AUI_Lab.client.function;
 
 import org.AUI_Lab.AUI_Lab.client.dto.GetClientsResponse;
 import org.AUI_Lab.AUI_Lab.client.entity.Client;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.function.Function;
-
+@Component
 public class ClientsToResponseFunction implements Function<List<Client>, GetClientsResponse> {
     @Override
     public GetClientsResponse apply(List<Client> entities){

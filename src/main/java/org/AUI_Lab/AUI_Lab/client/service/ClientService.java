@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Service
 public interface ClientService {
     List<Client> findAll();
     Optional<Client> findById(UUID id);

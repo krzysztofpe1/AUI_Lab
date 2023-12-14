@@ -11,10 +11,11 @@ import org.AUI_Lab.AUI_Lab.client.function.UpdateClientWithRequestFunction;
 import org.AUI_Lab.AUI_Lab.client.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
-
+@RestController
 public class ClientControllerImp implements ClientController{
 
     private final ClientService clientService;

@@ -1,30 +1,23 @@
 package org.AUI_Lab.AUI_Lab.order.service;
 
-import org.AUI_Lab.AUI_Lab.data_classes.Order;
-import org.AUI_Lab.AUI_Lab.repositories.OrderRepository;
+import org.AUI_Lab.AUI_Lab.order.entity.Order;
+import org.AUI_Lab.AUI_Lab.order.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
-@Service
-public class OrderService {
-    @Autowired
-    private final OrderRepository orderRepository;
-    @Autowired
-    public OrderService(OrderRepository orderRepository){
-        this.orderRepository=orderRepository;
-    }
-    public List<Order> getAllOrders(){
-        return orderRepository.findAll();
-    }
-    public List<Order> getOrderByClientsSurname(String surname){return new ArrayList<>();}
-    public void saveOrder(Order order){orderRepository.save(order);}
-    public void saveOrders(List<Order> orderList){orderList.forEach(orderRepository::save);}
-    public void deleteAllOrders(){orderRepository.deleteAll();}
-    public void deleteOrder(Order order){orderRepository.delete(order);}
-    /*public Order getOrderByClient(Client client);
-    public void saveOrder(Order item);
-    public void deleteOrder(Order item);*/
+public interface OrderService {
+    List<Order> findAll();
+    Optional<List<Order>> findAllByClient(UUID clientId);
+    Optional<Order> findById(UUID id);
+    Order findByName(String name);
+    void addOrder(Order player);
+    void updateOrder(Order player);
+    void deleteAll();
+    void deleteByName(String name);
+    void deleteById(UUID id);
 }

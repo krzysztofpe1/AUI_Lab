@@ -13,9 +13,9 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode
 public class PutOrderRequest {
-    private UUID id;
+    private String name;
     private String description;
     private Date orderDate;
     private Date deliveryDate;
-    private int clientId;
+    private UUID client;
 }

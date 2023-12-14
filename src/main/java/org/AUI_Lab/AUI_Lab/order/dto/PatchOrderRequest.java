@@ -4,6 +4,7 @@ package org.AUI_Lab.AUI_Lab.order.dto;
 import lombok.*;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -13,6 +14,7 @@ import java.util.Date;
 @ToString
 @EqualsAndHashCode
 public class PatchOrderRequest {
+    private String name;
     private String description;
     private Date orderDate;
     private Date deliveryDate;

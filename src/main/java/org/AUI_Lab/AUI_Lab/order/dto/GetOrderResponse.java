@@ -13,9 +13,23 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode
 public class GetOrderResponse {
+    @Getter
+    @Setter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor(access = AccessLevel.PRIVATE)
+    @ToString
+    @EqualsAndHashCode
+    public static class Client{
+        private UUID id;
+        private String name;
+        private String surname;
+        private String clientAddress;
+    }
     private UUID id;
+    private String name;
     private String description;
     private Date orderDate;
     private Date deliveryDate;
-    private int clientId;
+    private Client client;
 }
