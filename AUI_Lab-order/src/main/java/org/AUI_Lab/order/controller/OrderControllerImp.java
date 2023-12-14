@@ -33,6 +33,8 @@ public class OrderControllerImp implements OrderController {
     }
     @Override
     public GetOrdersResponse getOrders(){
+        System.out.println("AAAAAAAA");
+
         return ordersToResponse.apply(orderService.findAll());
     }
 

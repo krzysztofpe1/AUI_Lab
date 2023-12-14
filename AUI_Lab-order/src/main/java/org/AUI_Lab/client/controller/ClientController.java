@@ -11,7 +11,7 @@ public interface ClientController {
     @ResponseStatus(HttpStatus.CREATED)
     void putClient(@PathVariable("id") UUID id, @RequestBody PutClientRequest request);
 
-    @DeleteMapping("/api/clubs/{id}")
+    @DeleteMapping("/api/clients/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteClient(@PathVariable("id") UUID id);
 }

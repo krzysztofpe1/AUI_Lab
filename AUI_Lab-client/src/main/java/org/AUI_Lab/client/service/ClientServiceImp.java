@@ -4,16 +4,16 @@ import org.AUI_Lab.client.entity.Client;
 import org.AUI_Lab.client.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.AUI_Lab.client.event.repository.ClientEventRestRepository;
+import org.AUI_Lab.client.event.repository.ClientEventRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 @Service
 public class ClientServiceImp implements ClientService{
     private final ClientRepository clientRepository;
-    private final ClientEventRestRepository clientEventRepository;
+    private final ClientEventRepository clientEventRepository;
     @Autowired
-    public ClientServiceImp (ClientRepository clientRepository, ClientEventRestRepository clientEventRepository){
+    public ClientServiceImp (ClientRepository clientRepository, ClientEventRepository clientEventRepository){
         this.clientRepository = clientRepository;
         this.clientEventRepository = clientEventRepository;
     }
