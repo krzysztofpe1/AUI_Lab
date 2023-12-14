@@ -20,7 +20,7 @@ public interface OrderController {
     @ResponseBody
     GetOrdersResponse getClientOrders(@PathVariable("clientId") UUID clientId);
 
-    @GetMapping("/api/players/{id}")
+    @GetMapping("/api/orders/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     GetOrderResponse getOrder(@PathVariable("id") UUID id);
