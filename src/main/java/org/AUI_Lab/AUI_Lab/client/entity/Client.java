@@ -28,7 +28,7 @@ public class Client implements Comparable<Client>, Serializable {
     @Column(name = "client_surname")
     private  String surname;
     @Column(name = "client_address")
-    private Address deliveryAddress;
+    private String client_address;
     @Builder.Default
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "client", cascade = CascadeType.REMOVE)
     private List<Order> orders = new ArrayList<>();
