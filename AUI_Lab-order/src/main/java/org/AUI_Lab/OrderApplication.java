@@ -1,4 +1,4 @@
-package org.AUI_Lab.order;
+package org.AUI_Lab;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -13,7 +13,7 @@ public class ClientApplication {
 		SpringApplication.run(ClientApplication.class, args);
 	}
 	@Bean
-	public RestTemplate restTemplate(@Value("${AUI_Lab.order.url}") String baseUrl) {
+	public RestTemplate restTemplate(@Value("${AUI_Lab-order.url}") String baseUrl) {
 		return new RestTemplateBuilder().rootUri(baseUrl).build();
 	}
 }
