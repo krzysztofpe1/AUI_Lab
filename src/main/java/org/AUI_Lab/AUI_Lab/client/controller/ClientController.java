@@ -13,22 +13,22 @@ public interface ClientController {
     @GetMapping("api/clients")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    GetClientsResponse getClubs();
+    GetClientsResponse getClients();
 
     @GetMapping("api/clients/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    GetClientResponse getClub(@PathVariable("id") UUID id);
+    GetClientResponse getClient(@PathVariable("id") UUID id);
 
     @PutMapping("/api/clients/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    void putClub(@PathVariable("id") UUID id, @RequestBody PutClientRequest request);
+    void putClient(@PathVariable("id") UUID id, @RequestBody PutClientRequest request);
 
     @PatchMapping("/api/clients/{id}/update")
     @ResponseStatus(HttpStatus.OK)
-    void patchClub(@PathVariable("id") UUID id, @RequestBody PatchClientRequest request);
+    void patchClient(@PathVariable("id") UUID id, @RequestBody PatchClientRequest request);
 
     @DeleteMapping("/api/clients/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void deleteClub(@PathVariable("id") UUID id);
+    void deleteClient(@PathVariable("id") UUID id);
 }
