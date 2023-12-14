@@ -1,9 +1,8 @@
 package org.AUI_Lab.AUI_Lab.mics;
 
 import jakarta.annotation.PostConstruct;
-import org.AUI_Lab.AUI_Lab.data_classes.Address;
-import org.AUI_Lab.AUI_Lab.data_classes.Client;
-import org.AUI_Lab.AUI_Lab.data_classes.Order;
+import org.AUI_Lab.AUI_Lab.client.entity.Client;
+import org.AUI_Lab.AUI_Lab.order.entity.Order;
 import org.AUI_Lab.AUI_Lab.services.ClientService;
 import org.AUI_Lab.AUI_Lab.services.OrderService;
 import org.springframework.beans.factory.InitializingBean;
@@ -27,53 +26,53 @@ public class DataInitializer implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        clientService.deleteAllClients();
-        orderService.deleteAllOrders();
-        List<Order> janMlynarOrders = new ArrayList<>();
-        List<Order> janBemarOrders = new ArrayList<>();
-        Client janMlynar = Client.builder().id(UUID.randomUUID()).name("Jan").surname("Mlynar").deliveryAddress(new Address("Gdansk", "80-115", "Jasienska", 15,20)).orders(janMlynarOrders).build();
-        Client janBemar = Client.builder().id(UUID.randomUUID()).name("Jan").surname("Bemar").deliveryAddress(new Address("Gdansk", "80-115", "Jasienska", 15,20)).orders(janBemarOrders).build();
-        clientService.saveClient(janMlynar);
-        clientService.saveClient(janBemar);
-        //Jan Mlynar orders
+
+        Client marcinStenka = Client.builder().id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00a1")).name("Marcin").surname("Stenka").clientAddress("Turzycowa 33").build();
+        Client kubaStachowicz = Client.builder().id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00a2")).name("Kuba").surname("Stachowicz").clientAddress("Okopowa 12").build();
+        Client oskarWilda = Client.builder().id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00a3")).name("Oskar").surname("Wilda").clientAddress("Wiejska 3").build();
+        
+
+
+
 
         Order order1 = Order.builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b1"))
                 .description("Stationary")
                 .orderDate(new Date(2023, Calendar.OCTOBER, 23))
                 .deliveryDate(new Date(2023, Calendar.OCTOBER, 26))
                 .build();
-        //ordersList.add(order1);
         Order order2 = Order.builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b2"))
                 .description("Online")
                 .orderDate(new Date(2023, Calendar.SEPTEMBER, 29))
                 .deliveryDate(new Date(2023, Calendar.OCTOBER, 2))
                 .build();
-        //ordersList.add(order2);
-        janMlynar.addOrder(order1);
-        janMlynar.addOrder(order2);
-        //Jan Bemar orders
         Order order3 = Order.builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b3"))
                 .description("Online")
                 .orderDate(new Date(2023, Calendar.SEPTEMBER, 27))
                 .deliveryDate(new Date(2023, Calendar.SEPTEMBER, 30))
                 .build();
         Order order4 = Order.builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b4"))
                 .description("Online")
                 .orderDate(new Date(2023,Calendar.OCTOBER, 22))
                 .deliveryDate(new Date(2023, Calendar.OCTOBER, 26))
                 .build();
-        janBemar.addOrder(order3);
-        janBemar.addOrder(order4);
-        List<Order> ordersList = new ArrayList<>();
-        ordersList.addAll(janBemar.getOrders());
-        ordersList.addAll(janMlynar.getOrders());
-        janBemar.addOrder(order3);
-        janBemar.addOrder(order4);
+        Order order5 = Order.builder()
+                .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b5"))
+                .description("Stationary")
+                .orderDate(new Date(2023,Calendar.JULY, 2))
+                .deliveryDate(new Date(2023, Calendar.JULY, 4))
+                .build();
+        List<Client> clients = List.of(marcinStenka, kubaStachowicz, oskarWilda);
+        List<Order> orders = List.of(order1, order2, order3, order4, order5);
 
-        orderService.saveOrders(ordersList);
+        for (Client client:clients) {
+            clientService.addClient(client);
+        }
+        for (Order order:orders) {
+            orderService.addOrder(order);
+        }
     }
 }

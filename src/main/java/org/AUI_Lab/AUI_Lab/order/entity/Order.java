@@ -1,4 +1,4 @@
-package org.AUI_Lab.AUI_Lab.data_classes;
+package org.AUI_Lab.AUI_Lab.order.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
-
+import org.AUI_Lab.AUI_Lab.client.entity.Client;
 @Getter
 @Setter
 @Builder
@@ -19,8 +19,6 @@ import java.util.UUID;
 @Table(name = "orders")
 public class Order implements Comparable<Order>, Serializable {
     @Id
-    @GeneratedValue
-    @Column(unique = true, updatable = false)
     private UUID id;
     @Column(name = "description")
     private String description;

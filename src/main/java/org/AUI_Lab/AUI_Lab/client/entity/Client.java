@@ -1,4 +1,4 @@
-package org.AUI_Lab.AUI_Lab.data_classes;
+package org.AUI_Lab.AUI_Lab.client.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-
+import org.AUI_Lab.AUI_Lab.order.entity.Order;
 @Getter
 @Setter
 @Builder
@@ -20,22 +20,20 @@ import java.util.UUID;
 @Table(name = "clients")
 public class Client implements Comparable<Client>, Serializable {
     @Id
-    @GeneratedValue
-    @Column(unique = true, updatable = false)
     private UUID id;
     @Column(name = "client_name")
     private String name;
     @Column(name = "client_surname")
     private  String surname;
     @Column(name = "client_address")
-    private String client_address;
+    private String clientAddress;
     @Builder.Default
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "client", cascade = CascadeType.REMOVE)
     private List<Order> orders = new ArrayList<>();
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, deliveryAddress);
+        return Objects.hash(id, name, clientAddress);
     }
 
     @Override
@@ -45,14 +43,14 @@ public class Client implements Comparable<Client>, Serializable {
         Client client = (Client) obj;
         return id.equals(client.id)
                 && name.equals(client.name)
-                && deliveryAddress.equals(client.deliveryAddress);
+                && clientAddress.equals(client.clientAddress);
     }
 
     @Override
     public int compareTo(Client other) {
         if(!id.equals(other.id))return id.compareTo(other.id);
         if(!name.equals(other.name))return name.compareTo(other.name);
-        if(!deliveryAddress.equals(other.deliveryAddress))return deliveryAddress.compareTo(other.deliveryAddress);
+        if(!clientAddress.equals(other.clientAddress))return clientAddress.compareTo(other.clientAddress);
         return 0;
     }
 
@@ -62,13 +60,8 @@ public class Client implements Comparable<Client>, Serializable {
                 + String.valueOf(id)
                 + "', name='" + name
                 + "', surname='" + surname
-                + "', deliveryAddress='" + deliveryAddress.toString()+ "'");
+                + "', deliveryAddress='" + clientAddress.toString()+ "'");
         stringBuilder.append("}");
         return stringBuilder.toString();
-    }
-
-    public void addOrder(Order item){
-        item.setClient(this);
-        orders.add(item);
     }
 }
