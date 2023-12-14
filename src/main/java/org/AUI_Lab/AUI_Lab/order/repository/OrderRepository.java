@@ -1,7 +1,5 @@
-package org.AUI_Lab.AUI_Lab.repositories;
+package org.AUI_Lab.AUI_Lab.order.repository;
 
-import org.AUI_Lab.AUI_Lab.data_classes.Client;
-import org.AUI_Lab.AUI_Lab.data_classes.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

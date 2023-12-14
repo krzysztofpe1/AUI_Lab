@@ -2,9 +2,10 @@ package org.AUI_Lab.AUI_Lab.mics;
 
 import jakarta.annotation.PostConstruct;
 import org.AUI_Lab.AUI_Lab.client.entity.Client;
+import org.AUI_Lab.AUI_Lab.client.service.ClientService;
 import org.AUI_Lab.AUI_Lab.order.entity.Order;
-import org.AUI_Lab.AUI_Lab.services.ClientService;
-import org.AUI_Lab.AUI_Lab.services.OrderService;
+import org.AUI_Lab.AUI_Lab.client.service.ClientService;
+import org.AUI_Lab.AUI_Lab.order.service.OrderService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

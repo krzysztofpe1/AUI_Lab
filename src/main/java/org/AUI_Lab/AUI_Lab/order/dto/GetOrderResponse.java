@@ -1,4 +1,4 @@
-package org.AUI_Lab.AUI_Lab.dtos.order;
+package org.AUI_Lab.AUI_Lab.order.dto;
 
 import lombok.*;
 
@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
-public class InsertOrderDTO {
+public class GetOrderResponse {
     private UUID id;
     private String description;
     private Date orderDate;

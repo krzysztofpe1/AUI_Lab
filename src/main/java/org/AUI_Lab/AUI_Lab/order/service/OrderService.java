@@ -1,4 +1,4 @@
-package org.AUI_Lab.AUI_Lab.services;
+package org.AUI_Lab.AUI_Lab.order.service;
 
 import org.AUI_Lab.AUI_Lab.data_classes.Order;
 import org.AUI_Lab.AUI_Lab.repositories.OrderRepository;
