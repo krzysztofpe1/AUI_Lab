@@ -42,6 +42,7 @@ public class DataInitializer implements InitializingBean {
                 .description("Stationary")
                 .orderDate("2023-08-23")
                 .deliveryDate("2023-08-26")
+                .client(marcinStenka)
                 .build();
         Order order2 = Order.builder()
                 .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b2"))
@@ -49,6 +50,7 @@ public class DataInitializer implements InitializingBean {
                 .description("Online")
                 .orderDate("2023-01-21")
                 .deliveryDate("2023-01-23")
+                .client(marcinStenka)
                 .build();
         Order order3 = Order.builder()
                 .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b3"))
@@ -56,6 +58,7 @@ public class DataInitializer implements InitializingBean {
                 .description("Online")
                 .orderDate("2023-03-01")
                 .deliveryDate("2023-03-02")
+                .client(kubaStachowicz)
                 .build();
         Order order4 = Order.builder()
                 .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b4"))
@@ -63,6 +66,7 @@ public class DataInitializer implements InitializingBean {
                 .description("Online")
                 .orderDate("2023-11-20")
                 .deliveryDate("2023-11-20")
+                .client(oskarWilda)
                 .build();
         Order order5 = Order.builder()
                 .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00b5"))
@@ -70,6 +74,7 @@ public class DataInitializer implements InitializingBean {
                 .description("Stationary")
                 .orderDate("2023-12-12")
                 .deliveryDate("2023-12-13")
+                .client(kubaStachowicz)
                 .build();
         List<Client> clients = List.of(marcinStenka, kubaStachowicz, oskarWilda);
         List<Order> orders = List.of(order1, order2, order3, order4, order5);
