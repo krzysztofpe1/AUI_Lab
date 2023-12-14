@@ -23,9 +23,6 @@ public class ClientServiceImp implements ClientService{
     public List<Client> findAll() {
         return clientRepository.findAll();
     }
-    public Client findBySurname(String surname) {
-        return clientRepository.findBySurname(surname);
-    }
     public Optional<Client> findById(UUID id) {
         return clientRepository.findById(id);
     }
@@ -35,10 +32,6 @@ public class ClientServiceImp implements ClientService{
     }
     public void updateClient(Client client){
         clientRepository.save(client);
-    }
-
-    public void deleteAll() {
-        clientRepository.deleteAll();
     }
 
     public void deleteById(UUID id){

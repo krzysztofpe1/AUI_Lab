@@ -15,61 +15,64 @@ GET http://localhost:8080/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00c1
 PATCH http://localhost:8080/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00b1/update
 
 {
-    "name":"Koszulka",
-    "description": "Online",
-    "orderDate": "3923-01-1",
-    "deliveryDate": "3923-01-02"
+ "name":"Koszulka",
+ "description": "Online",
+ "orderDate": "2023-01-01",
+ "deliveryDate": "2023-01-02"
 }
 
-### Create new player
+### Create new order
 
-PUT http://localhost:8080/api/players/c4804e0f-769e-4ab9-9ebe-0578fb4f00a9
+PUT http://localhost:8080/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00b6
 
 {
-    "name": "Joao",
-    "surname": "Felix",
-    "age": 24,
-    "club": "c4804e0f-769e-4ab9-9ebe-0578fb4f00a1"
+ "name":"Monitor",
+ "description": "Online",
+ "orderDate": "2023-02-02",
+ "deliveryDate": "2023-02-03",
+ "client": "c4804e0f-769e-4ab9-9ebe-0578fb4f00a1"
 }
 
-### Delete player.
+### Delete order.
 
-DELETE http://localhost:8080/api/players/c4804e0f-769e-4ab9-9ebe-0578fb4f00a9
+DELETE http://localhost:8080/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00b6
 
-### Get all clubs
+### Get all clients
 
-GET http://localhost:8080/api/clubs
+GET http://localhost:8080/api/clients
 
-### Get single club
+### Get single client
 
-GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+GET http://localhost:8080/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
 
-### Get single club, not existing
+### Get single client, not existing
 
-GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a1
+GET http://localhost:8080/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f10a4
 
-### Add new club
+### Add new client
 
-PUT http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
+PUT http://localhost:8080/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f10a4
 
 {
-    "name": "Juventus",
-    "foundingYear": 189
+ "name":"Piotr",
+ "surname": "Wesołowski",
+ "clientAddress": "Politechniczna 39"
 }
 
-### Update club
+### Update client
 
-PATCH http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/update
+PATCH http://localhost:8080/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f10a4/update
 
 {
-    "name":"Lechia",
-    "foundingYear":123
+ "name":"Piter",
+ "surname": "Parker",
+ "clientAddress": "Do Studni 9"
 }
-### Delete club
+### Delete client
 
-DELETE http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
+DELETE http://localhost:8080/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f10a4
 
-### Get club players
+### Get client orders
 
-GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/players
+GET http://localhost:8080/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/orders
 

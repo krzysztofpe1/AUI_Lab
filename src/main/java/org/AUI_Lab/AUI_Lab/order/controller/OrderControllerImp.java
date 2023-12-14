@@ -37,8 +37,8 @@ public class OrderControllerImp implements OrderController {
     }
 
     @Override
-    public GetOrdersResponse getClientOrders(UUID clubId) {
-        return orderService.findAllByClient(clubId)
+    public GetOrdersResponse getClientOrders(UUID clientId) {
+        return orderService.findAllByClient(clientId)
                 .map(ordersToResponse)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
@@ -64,7 +64,7 @@ public class OrderControllerImp implements OrderController {
     public void deleteOrder(UUID id) {
         orderService.findById(id)
                 .ifPresentOrElse(
-                        player -> orderService.deleteById(id),
+                        order -> orderService.deleteById(id),
                         () -> {throw new ResponseStatusException(HttpStatus.NOT_FOUND);}
                 );
     }

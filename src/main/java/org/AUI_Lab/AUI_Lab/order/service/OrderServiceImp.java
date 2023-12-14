@@ -25,13 +25,9 @@ public class OrderServiceImp implements OrderService{
         return orderRepository.findAll();
     }
 
-    public Optional<List<Order>> findAllByClient(UUID clubId) {
-        return clientRepository.findById(clubId)
+    public Optional<List<Order>> findAllByClient(UUID clientId) {
+        return clientRepository.findById(clientId)
                 .map(orderRepository::findAllByClient);
-    }
-
-    public Order findByName(String name) {
-        return orderRepository.findByName(name);
     }
     public Optional<Order> findById(UUID id){
         return orderRepository.findById(id);
@@ -42,13 +38,6 @@ public class OrderServiceImp implements OrderService{
     }
 
     public void updateOrder(Order order){ orderRepository.save(order);}
-    public void deleteAll() {
-        orderRepository.deleteAll();
-    }
-    public void deleteByName(String name) {
-        Order order = orderRepository.findByName(name);
-        orderRepository.delete(order);
-    }
     public void deleteById(UUID id){
         if (orderRepository.findById(id).isPresent()){
             orderRepository.deleteById(id);

@@ -1,7 +1,6 @@
 package org.AUI_Lab.AUI_Lab.client.service;
 
 import org.AUI_Lab.AUI_Lab.client.entity.Client;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
