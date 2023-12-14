@@ -10,10 +10,8 @@ import java.util.UUID;
 @Service
 public interface ClientService {
     List<Client> findAll();
-    Client findByName(String name);
     Optional<Client> findById(UUID id);
     void addClient(Client client);
     void updateClient(Client client);
-    void deleteAll();
     void deleteById(UUID id);
 }
