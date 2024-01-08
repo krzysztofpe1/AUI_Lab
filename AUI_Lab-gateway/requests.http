@@ -1,0 +1,78 @@
+### Get all orders
+
+GET http://localhost:8083/api/orders
+
+### Get single order
+
+GET http://localhost:8083/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00b1
+
+### Get single order, not existing
+
+GET http://localhost:8083/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00c1
+
+### Update order
+
+PATCH http://localhost:8083/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00b1/update
+
+{
+ "name":"Koszulka",
+ "description": "Online",
+ "orderDate": "2023-01-01",
+ "deliveryDate": "2023-01-02"
+}
+
+### Create new order
+
+PUT http://localhost:8083/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00b6
+
+{
+ "name":"Monitor",
+ "description": "Online",
+ "orderDate": "2023-02-02",
+ "deliveryDate": "2023-02-03",
+ "client": "c4804e0f-769e-4ab9-9ebe-0578fb4f00a1"
+}
+
+### Delete order.
+
+DELETE http://localhost:8083/api/orders/c4804e0f-769e-4ab9-9ebe-0578fb4f00b6
+
+### Get all clients
+
+GET http://localhost:8083/api/clients
+
+### Get single client
+
+GET http://localhost:8083/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+
+### Get single client, not existing
+
+GET http://localhost:8083/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f10a4
+
+### Add new client
+
+PUT http://localhost:8083/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f10a4
+
+{
+ "name":"Piotr",
+ "surname": "Wesołowski",
+ "clientAddress": "Politechniczna 39"
+}
+
+### Update client
+
+PATCH http://localhost:8083/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f10a4/update
+
+{
+ "name":"Piter",
+ "surname": "Parker",
+ "clientAddress": "Do Studni 9"
+}
+### Delete client
+
+DELETE http://localhost:8083/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f10a4
+
+### Get client orders
+
+GET http://localhost:8083/api/clients/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/orders
+

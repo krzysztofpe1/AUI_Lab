@@ -1,0 +1,54 @@
+<article>
+  <header><h2>Clients</h2></header>
+  <div class="container">
+    <table *ngIf="clients">
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients.clients">
+          <td>{{ client.name }} {{ client.surname }}</td>
+          <td>
+            <a [routerLink]="['/clients', client.id]">View</a>
+          </td>
+          <td>
+            <a [routerLink]="['/clients', client.id, 'edit']">Edit</a>
+          </td>
+          <td>
+            <button (click)="onDelete(client)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div><h2>Add new client</h2></div>
+
+    <div>
+      <label for="id">Id:</label>
+      <input id="id" name="id" [(ngModel)]="newClient.id" />
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" name="name" [(ngModel)]="newClient.name" />
+    </div>
+    <div>
+      <label for="surname">Surname:</label>
+      <input id="surname" name="surname" [(ngModel)]="newClient.surname" />
+    </div>
+    <div>
+      <label for="clientAddress">Client Address:</label>
+      <input
+        id="clientAddress"
+        name="clientAddress"
+        [(ngModel)]="newClient.clientAddress"
+      />
+    </div>
+    <button type="submit">Add new client</button>
+  </form>
+</article>

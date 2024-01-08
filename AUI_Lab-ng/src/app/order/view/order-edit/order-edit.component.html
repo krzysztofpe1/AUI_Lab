@@ -1,0 +1,58 @@
+<article *ngIf="order">
+  <header><h2>Edit order</h2></header>
+
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="">
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" name="name" [(ngModel)]="order.name" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="description">Description:</label>
+          <input
+            id="description"
+            name="description"
+            [(ngModel)]="order.description"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="order_date">Order Date:</label>
+          <input
+            id="order_date"
+            name="order_date"
+            [(ngModel)]="order.orderDate"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="delivery_date">Delivery Date:</label>
+          <input
+            id="delivery_date"
+            name="delivery_date"
+            [(ngModel)]="order.deliveryDate"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row buttons">
+      <div class="col-2 p-2">
+        <button type="submit">Update</button>
+      </div>
+      <div class="col-2 p-2">
+        <button type="button" (click)="form.resetForm(original)">Reset</button>
+      </div>
+    </div>
+  </form>
+</article>
