@@ -15,7 +15,7 @@ public class ClientsToResponseFunction implements Function<List<Client>, GetClie
                         .map(client -> GetClientsResponse.Client.builder()
                                 .id(client.getId())
                                 .name(client.getName())
-                                .surname(client.getName())
+                                .surname(client.getSurname())
                                 .clientAddress(client.getClientAddress())
                                 .build())
                         .toList())

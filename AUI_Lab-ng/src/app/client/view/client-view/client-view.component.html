@@ -1,0 +1,50 @@
+<article *ngIf="client">
+  <p><b>Id: </b> {{ client.id }}</p>
+  <p><b>Name: </b>{{ client.name }}</p>
+  <p><b>Surname: </b>{{ client.surname }}</p>
+  <p><b>Client Address: </b> {{ client.clientAddress }}</p>
+  <p><b>Orders:</b></p>
+  <p *ngFor="let order of client.orders">
+    - {{ order.name }}
+    <a [routerLink]="['/orders', order.id, 'edit']">Edit</a>
+  </p>
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div>
+      <h2>Add new order to {{ client.name }}</h2>
+    </div>
+
+    <div>
+      <label for="id">Id:</label>
+      <input id="id" name="id" [(ngModel)]="newOrderId" />
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" name="name" [(ngModel)]="newOrder.name" />
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input
+        id="description"
+        name="description"
+        [(ngModel)]="newOrder.description"
+      />
+    </div>
+    <div>
+      <label for="order_date">Order Date:</label>
+      <input
+        id="order_date"
+        name="order_date"
+        [(ngModel)]="newOrder.order_date"
+      />
+    </div>
+    <div>
+      <label for="delivery_date">Delivery Date:</label>
+      <input
+        id="delivery_date"
+        name="delivery_date"
+        [(ngModel)]="newOrder.delivery_date"
+      />
+    </div>
+    <button type="submit">Add new order</button>
+  </form>
+</article>

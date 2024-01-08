@@ -1,0 +1,29 @@
+<article>
+  <header><h2>Orders</h2></header>
+  <div class="container">
+    <table *ngIf="orders">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders.orders">
+          <td>{{ order.name }}</td>
+          <td>
+            <a [routerLink]="['/orders', order.id]">View</a>
+          </td>
+          <td>
+            <a [routerLink]="['/orders', order.id, 'edit']">Edit</a>
+          </td>
+          <td>
+            <button (click)="onDelete(order)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</article>
