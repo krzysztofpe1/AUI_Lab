@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  h2database-client:
+      image: oscarfonts/h2
+      restart: always
+      environment:
+          H2_OPTIONS: -ifNotExists
+
+  h2database-order:
+    image: oscarfonts/h2
+    restart: always
+    environment:
+        H2_OPTIONS: -ifNotExists
+
+  AUI_Lab-order:
+    image: AUI_Lab-order:1.0.0-SNAPSHOT
+    restart: always
+    depends_on:
+        - h2database-order
+    healthcheck:
+        test: curl -f http://localhost:8080/api/orders || exit 1
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 20s
+        start_interval: 5s
+    environment:
+        SPRING_DATASOURCE_URL: jdbc:h2:tcp://h2database-order:1521/AUI_Lab-order
+
+
+  AUI_Lab-client:
+    image: AUI_Lab-client:1.0.0-SNAPSHOT
+    restart: always
+    depends_on:
+        h2database-client:
+                condition: service_started
+        AUI_Lab-order:
+            condition: service_healthy
+    environment:
+      AUI_LAB_ORDER_URL: "http://AUI_Lab-order:8080"
+      SPRING_DATASOURCE_URL: jdbc:h2:tcp://h2database-client:1521/AUI_Lab-client
+
+  AUI_Lab-gateway:
+    image: AUI_Lab-gateway:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      AUI_LAB_ORDER_URL: "http://AUI_Lab-order:8080"
+      AUI_LAB_CLIENT_URL: "http://AUI_Lab-client:8080"
+      AUI_LAB_GATEWAY_HOST: "AUI_Lab-gateway:8080"
+
+  AUI_Lab-ng:
+    image: AUI_Lab-ng:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      API_URL: http://AUI_Lab-gateway:8080/api
+    ports:
+      - "8087:80"
